@@ -178,15 +178,20 @@ public class ResourceCentre {
 	}
 	
 	
-	public static Chromebook inputChromebook() {	
-		Chromebook cb =null;
-		// write your code here
-		return cb;
-		
-	}	
-	public static void addChromebook(ArrayList<Chromebook> chromebookList, Chromebook cb) {
-		// write your code here
-	}
+	 public static Chromebook inputChromebook() {   
+	        Chromebook cb =null;
+	        String tag = Helper.readString("Enter asset tag > ");
+	        String description = Helper.readString("Enter description > ");
+	        String zoom = Helper.readString("Enter OS > ");
+	        return cb;
+	       
+	       
+	       
+	    }   
+	    public static void addChromebook(ArrayList<Chromebook> chromebookList, Chromebook cb) {
+	        chromebookList.add(cb);
+	        System.out.println("Chromebook added");
+	    }
 	
 	//================================= Option 3 Loan =================================
 	public static boolean doLoanCamcorder(ArrayList<Camcorder> camcorderList, String tag, String dueDate) {
