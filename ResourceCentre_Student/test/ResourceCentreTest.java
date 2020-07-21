@@ -38,7 +38,7 @@ public class ResourceCentreTest {
 		assertNotNull("Test if there is valid Camcorder arraylist to add to", camcorderList);
 		
 		//Given an empty list, after adding 1 item, the size of the list is 1
-		ResourceCentre.addCamcorder(camcorderList, cc1);		
+		ResourceCentre.addCamcorder(camcorderList, cc1);	
 		assertEquals("Test if that Camcorder arraylist size is 1?", 1, camcorderList.size());
 		
 		//The item just added is as same as the first item of the list
