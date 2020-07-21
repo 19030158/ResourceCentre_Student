@@ -102,12 +102,41 @@ public class ResourceCentreTest {
 		//fail("Not yet implemented");
 		// write your code here
 		
-	}
+		//Test if loan list is not null, so that can return
+		assertNotNull("Test if there is valid Camcorder arraylist to add to", camcorderList);
+		
+		//Test if asset tag input of item being returned is in the list
+		//Test if 
+		
+		}
 	@Test
 	public void doReturnChromebookTest() {
 		//fail("Not yet implemented");
 		// write your code here
+
+	        // Test if Item list is not null but empty, so that can add a new item
+	        assertNotNull("Test if there is a valid Chromebook arraylist to print out a list of camcorder that is loanable",
+	                camcorderList);
+	        
+	        // Add some chromebook items
+	        ResourceCentre.addChromebook(chromebookList, cb1);
+	        ResourceCentre.addChromebook(chromebookList, cb2);
+	
+	        // Loan items out
+	        ResourceCentre.doLoanChromebook(chromebookList, "CB0011", "21/7/2020");
+	        ResourceCentre.doLoanChromebook(chromebookList, "CB0012", "21/7/2020");
+	 
+	        // Check if item is loaned out
+	        assertFalse("Test if chromebook is available/not loaned", cb1.getIsAvailable());
+	        assertFalse("Test if chromebook is available/not loaned", cb2.getIsAvailable());
+	        
+	        // Test to return an item
+	        ResourceCentre.doReturnChromebook(chromebookList, "CB0011");
+
+	        assertTrue("Test if chromebook is available/not loaned", cb1.getIsAvailable());
+	        assertFalse("Test if chromebook is not returned", cb2.getIsAvailable());
 	}
+
 	
 	@After
 	public void tearDown() throws Exception {
