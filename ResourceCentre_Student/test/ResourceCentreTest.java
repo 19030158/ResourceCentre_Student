@@ -38,7 +38,7 @@ public class ResourceCentreTest {
 		assertNotNull("Test if there is valid Camcorder arraylist to add to", camcorderList);
 		
 		//Given an empty list, after adding 1 item, the size of the list is 1
-		ResourceCentre.addCamcorder(camcorderList, cc1);		
+		ResourceCentre.addCamcorder(camcorderList, cc1);	
 		assertEquals("Test if that Camcorder arraylist size is 1?", 1, camcorderList.size());
 		
 		//The item just added is as same as the first item of the list
@@ -49,10 +49,22 @@ public class ResourceCentreTest {
 		assertEquals("Test that Camcorder arraylist size is 2?", 2, camcorderList.size());
 	}
 	@Test
-	public void addChromebookTest() {
-		//fail("Not yet implemented");
-		// write your code here
-	}
+    public void addChromebookTest() {
+		
+        //fail("Not yet implemented");
+        assertNotNull("Test if there is valid Chromebook arraylist to add to", chromebookList);
+       
+        //Given an empty list, after adding 1 item, the size of the list is 1
+        ResourceCentre.addChromebook(chromebookList, cb1);       
+        assertEquals("Test if that Chromebook arraylist size is 1?", 1, chromebookList.size());
+       
+        //The item just added is as same as the first item of the list
+        assertSame("Test that Chromebook is added same as 1st item of the list?", cb1, chromebookList.get(0));
+       
+        //Add another item. test The size of the list is 2?
+        ResourceCentre.addChromebook(chromebookList, cb2);
+        assertEquals("Test that Chromebook arraylist size is 2?", 2, chromebookList.size());
+    }
 	
 	@Test
 	public void retrieveAllCamcorderTest() {
@@ -80,12 +92,57 @@ public class ResourceCentreTest {
 	}
 	@Test
 	public void retrieveAllChromebookTest() {
+		// Test if item list is not null but empty, so that can add a new item
+		assertNotNull("Test if there is valid Camcorder arraylist to add to", chromebookList);
+		
+		// Test if the list of camcorders retrieved from the resource centre is empty
+		String allChromebooks = ResourceCentre.retrieveAllChromebook(chromebookList);
+		String testOutput = "";
+		assertEquals("Check that ViewAllCamcorderlist", testOutput, allChromebooks);
+		
+		//Given an empty list, after adding 2 items, test if size of list is 2
+		ResourceCentre.addChromebook(chromebookList, cb1);
+		ResourceCentre.addChromebook(chromebookList, cb2);
+		assertEquals("Test if that Chromebook arraylist size is 2", 2, chromebookList.size());
+		
+		//Test if the expected output string is same as the list of chromebooks retrieved from the SourceCentre
+		allChromebooks = ResourceCentre.retrieveAllChromebook(chromebookList);
+		testOutput = String.format("%-10s %-30s %-10s %-10s %-20d\n", "CB0011", "My Google Chromebook 1st","Yes", "", "Mac OS");
+		testOutput += String.format("%-10s %-30s %-10s %-10s %-20d\n", "CB0012", "SAMSUNG Chromebook 4+","Yes", "", "Win 10");
+		
+		assertEquals("Check that viewAllCamcorderList", testOutput, allChromebooks);
 		//fail("Not yet implemented");
 		// write your code here
 	}
 
 	@Test
 	public void doLoanCamcorderTest() {
+		// Test if item list is not null
+		assertNotNull("Check if there is an arraylist to loan from", camcorderList);
+		
+		//Test if the item list has items to loan
+		ResourceCentre.addCamcorder(camcorderList, cc1);
+		assertEquals("Test if there is an item in the list", 1, camcorderList.size());
+		
+		//Test if asset tag input of item that needs to be loaned is present in item list
+		ResourceCentre.addCamcorder(camcorderList, cc1);
+		String testInput = "CC0011";
+		String camcorderTag = camcorderList.get(0).getAssetTag();
+		
+		assertEquals("Test if input matches camcorder tag", testInput, camcorderTag);
+		
+		//Test if availability of item loaned is changed and due date entered
+		ResourceCentre.addCamcorder(camcorderList, cc1);
+		camcorderList.get(0).setIsAvailable(false);
+		camcorderList.get(0).setDueDate("21/7");
+		String allCamcorder = ResourceCentre.retrieveAllCamcorder(camcorderList);
+		
+		String testOutput = String.format("%-10s %-30s %-10s %-10s %-20d\n","CC0011", "Nikon HDSLR", "No", "21/7", 40);
+		
+		
+		assertEquals("Availability and due date changed accordingly", testOutput, allCamcorder);
+		
+		
 		//fail("Not yet implemented");
 		// write your code here
 		

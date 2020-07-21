@@ -145,7 +145,14 @@ public class ResourceCentre {
 
 	public static String retrieveAllChromebook(ArrayList<Chromebook> chromebookList) {
 		String output = "";
-		// write your code here
+		
+		for (int i = 0; i < chromebookList.size(); i++) {
+			output += String.format("%-10s %-30s %-10s %-10s %-20d\n", chromebookList.get(i).getAssetTag(),
+					chromebookList.get(i).getDescription(), 
+					ResourceCentre.showAvailability(chromebookList.get(i).getIsAvailable()),
+					chromebookList.get(i).getDueDate(),chromebookList.get(i).getOs());
+		}
+
 		return output;
 	}
 	public static void viewAllChromebook(ArrayList<Chromebook> chromebookList) {
@@ -163,6 +170,7 @@ public class ResourceCentre {
 		Camcorder cc= new Camcorder(tag, description, zoom);
 		return cc;
 		
+		
 	}
 	public static void addCamcorder(ArrayList<Camcorder> camcorderList, Camcorder cc) {
 		
@@ -170,15 +178,21 @@ public class ResourceCentre {
 		System.out.println("Camcorder added");
 	}
 	
-	public static Chromebook inputChromebook() {	
-		Chromebook cb =null;
-		// write your code here
-		return cb;
-		
-	}	
-	public static void addChromebook(ArrayList<Chromebook> chromebookList, Chromebook cb) {
-		// write your code here
-	}
+	
+	 public static Chromebook inputChromebook() {   
+	        Chromebook cb =null;
+	        String tag = Helper.readString("Enter asset tag > ");
+	        String description = Helper.readString("Enter description > ");
+	        String zoom = Helper.readString("Enter OS > ");
+	        return cb;
+	       
+	       
+	       
+	    }   
+	    public static void addChromebook(ArrayList<Chromebook> chromebookList, Chromebook cb) {
+	        chromebookList.add(cb);
+	        System.out.println("Chromebook added");
+	    }
 	
 	//================================= Option 3 Loan =================================
 	public static boolean doLoanCamcorder(ArrayList<Camcorder> camcorderList, String tag, String dueDate) {
