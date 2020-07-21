@@ -164,7 +164,7 @@ public class ResourceCentreTest {
 	public void doReturnChromebookTest() {
 		//fail("Not yet implemented");
 		// write your code here
-
+//yuen
 	        // Test if Item list is not null but empty, so that can add a new item
 	        assertNotNull("Test if there is a valid Chromebook arraylist to print out a list of camcorder that is loanable",
 	                camcorderList);
@@ -172,7 +172,7 @@ public class ResourceCentreTest {
 	        // Add some chromebook items
 	        ResourceCentre.addChromebook(chromebookList, cb1);
 	        ResourceCentre.addChromebook(chromebookList, cb2);
-	
+	        
 	        // Loan items out
 	        ResourceCentre.doLoanChromebook(chromebookList, "CB0011", "21/7/2020");
 	        ResourceCentre.doLoanChromebook(chromebookList, "CB0012", "21/7/2020");
