@@ -102,12 +102,6 @@ public class ResourceCentreTest {
 		//fail("Not yet implemented");
 		// write your code here
 		
-		//Test if loan list is not null, so that can return
-		assertNotNull("Test if there is valid Camcorder arraylist to add to", camcorderList);
-		
-		//Test if asset tag input of item being returned is in the list
-		//Test if 
-		
 		}
 	@Test
 	public void doReturnChromebookTest() {
