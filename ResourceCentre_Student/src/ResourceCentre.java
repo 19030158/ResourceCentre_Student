@@ -170,6 +170,7 @@ public class ResourceCentre {
 		Camcorder cc= new Camcorder(tag, description, zoom);
 		return cc;
 		
+		
 	}
 	public static void addCamcorder(ArrayList<Camcorder> camcorderList, Camcorder cc) {
 		
