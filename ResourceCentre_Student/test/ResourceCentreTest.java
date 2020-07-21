@@ -127,6 +127,7 @@ public class ResourceCentreTest {
 		
 		String testOutput = String.format("%-10s %-30s %-10s %-10s %-20d\n","CC0011", "Nikon HDSLR", "No", "21/7", 40);
 		
+		
 		assertEquals("Availability and due date changed accordingly", testOutput, allCamcorder);
 		
 		
